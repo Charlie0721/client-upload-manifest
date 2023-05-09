@@ -6,7 +6,6 @@ export const signinStore = defineStore('signinStore', {
     state: () => {
         return {
             signin: {} as LoginUserData,
-
         }
     },
     actions: {
