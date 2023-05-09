@@ -1,19 +1,18 @@
 import { defineStore } from 'pinia';
-import { RegisterUser } from '../services/signup.service';
-import { SignupService } from '../services/signup.service';
-export const singupStore = defineStore('singupStore', {
+import { LoginUser,LoginUserData } from '../services/signin.service';
+export const signinStore = defineStore('signinStore', {
 
 
     state: () => {
         return {
-            registerUser: {} as RegisterUser,
+            signin: {} as LoginUserData,
 
         }
     },
     actions: {
-        async signupUser(user: RegisterUser): Promise<any> {
+        async signinUser(user: LoginUserData): Promise<any> {
             try {
-                const response = await SignupService.registerUser(user)
+                const response = await LoginUser.loginUser(user);
                 return response
             } catch (error: any) {
 

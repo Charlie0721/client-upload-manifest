@@ -18,6 +18,7 @@ export class RegisterUser {
 export class SignupService {
 
     static registerUser = async (data: RegisterUser) => {
+    
         return await axios.post('/signup', data)
     }
 
