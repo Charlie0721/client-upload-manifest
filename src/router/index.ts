@@ -19,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/all-manifest/:productId',
     name: 'manifest',
     component: Manifest
+  },
+  {
+    path: '/all-manifest',
+    name: 'manifest',
+    component: Manifest
   }
 
 

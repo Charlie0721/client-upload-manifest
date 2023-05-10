@@ -1,9 +1,21 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="file in files" :key="file._id">{{ file.purchaseNumber }}</li>
-    </ul>
+    <div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4" v-for="(file, index) in files" :key="file._id + index">
+      <div class="card">
+        <div class="card-content">
+          <h5 class="card-title">{{ file.originalFileName }}</h5>
+          <p class="card-text">Id del PDF: {{ file.public_id }}</p>
+          <p class="card-text">
+            Url PDF: <a :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
 </template>
   
   <script lang="ts">
@@ -20,8 +32,7 @@ export default defineComponent({
 
     //@ts-ignore
 
-    const files = computed(() => fileStore.files);
-    console.log(files)
+    const files = computed(() => fileStore.files)
     onMounted(async () => {
       await fileStore.fetchFiles(productIds.join(','))
     })
@@ -32,3 +43,8 @@ export default defineComponent({
   }
 })
 </script>
+<style scoped>
+.card-content {
+  padding: 1rem;
+}
+</style>
