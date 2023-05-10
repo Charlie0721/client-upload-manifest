@@ -1,8 +1,8 @@
 import axios, {  type AxiosInstance } from "axios";
-
+import {URI_API} from './environmentVariables';
 const axiosIntance: AxiosInstance = axios.create({
-
-    baseURL: ' http://192.168.1.142:4001/api/v1',
+  
+    baseURL: URI_API,
     headers: {
         'Content-Type': 'application/json',
 
