@@ -5,6 +5,7 @@
       <div class="card">
         <div class="card-content">
           <h5 class="card-title">{{ file.originalFileName }}</h5>
+          <img :src="file.imageURL" class="card-img-top" alt="...">
           <p class="card-text">Id del PDF: {{ file.public_id }}</p>
           <p class="card-text">
             Url PDF: <a :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>

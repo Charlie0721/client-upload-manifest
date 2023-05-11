@@ -2,6 +2,8 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import SignUp from '../components/login/SignUp.vue';
 import Login from '../components/login/Signin.vue';
 import Manifest from '../components/Manifest/GetManifest.vue';
+import AllManifest from '../components/Manifest/GetAllManifest.vue';
+
 const routes: Array<RouteRecordRaw> = [
 
   {
@@ -22,8 +24,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/all-manifest',
-    name: 'manifest',
-    component: Manifest
+    name: 'all-manifest',
+    component: AllManifest
   }
 
 
