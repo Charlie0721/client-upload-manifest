@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { AllManifestServices } from '../services/allFiles.service';
+import { DeleteFileService } from '../services/deleteFile.service';
 
 export const useManifestStore = defineStore('manifestStore', {
 
@@ -7,7 +8,9 @@ export const useManifestStore = defineStore('manifestStore', {
         return {
             allManifest: [] as any,
             page: 1 as number,
-            limit: 10 as number
+            limit: 10 as number,
+            _id: '' as string,
+            responseDelete: '' as string
         }
     },
     actions: {
@@ -23,6 +26,17 @@ export const useManifestStore = defineStore('manifestStore', {
                 console.log(error)
             }
 
+        },
+        async deleteManifest(id: string) {
+            try {
+
+                this._id = id
+                const response = await DeleteFileService.deleteFile(this._id);
+                this.responseDelete = response.data.message
+                return this.responseDelete
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 

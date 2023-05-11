@@ -1,5 +1,7 @@
 <template>
-  <div class="container">
+   <Nav/>
+ <div class="container">
+   
     <div class="card">
       <div class="card-body">
         <h1 class="h3">REGISTRAR USUARIO</h1>
@@ -48,6 +50,7 @@ import { ref, reactive } from 'vue'
 import { singupStore } from '../../stores/signup.store'
 import { RegisterUser } from '../../services/signup.service'
 import router from '../../router/index'
+import Nav from '../nav/Nav.vue';
 const signup = singupStore()
 
 const data = reactive<RegisterUser>({

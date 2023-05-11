@@ -1,22 +1,21 @@
 <template>
-    <div class="container">
-  <div class="row">
-    <div class="col-md-4 mb-4" v-for="(file, index) in files" :key="file._id + index">
-      <div class="card">
-        <div class="card-content">
-          <h5 class="card-title">{{ file.originalFileName }}</h5>
-          <img :src="file.imageURL" class="card-img-top" alt="...">
-          <p class="card-text">Id del PDF: {{ file.public_id }}</p>
-          <p class="card-text">
-            Url PDF: <a :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="container" style="padding-top: 50px">
+    <div class="row">
+      <div class="col-md-4 mb-4" v-for="(file, index) in files" :key="file._id + index">
+        <div class="card">
+          <div class="card-content">
+            <h5 class="card-title">{{ file.originalFileName }}</h5>
+            <img :src="file.imageURL" class="card-img-top" alt="..." />
+            <p class="card-text">Id del PDF: {{ file.public_id }}</p>
+            <p class="card-text">
+              Url PDF: <a :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
 </template>
   
   <script lang="ts">

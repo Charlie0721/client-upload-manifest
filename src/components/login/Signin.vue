@@ -1,4 +1,5 @@
 <template>
+  <Nav/>
   <div class="card">
     <div class="card-body">
       <h1 class="h3">Iniciar Sesión</h1>
@@ -42,7 +43,7 @@ import { ref, reactive } from 'vue'
 import { signinStore } from '../../stores/signin.store'
 import { LoginUserData } from '../../services/signin.service'
 import router from '../../router/index'
-
+import Nav from '../nav/Nav.vue';
 const signin = signinStore()
 
 const signinData = reactive<LoginUserData>({
