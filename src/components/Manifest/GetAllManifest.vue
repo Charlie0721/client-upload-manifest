@@ -1,4 +1,5 @@
 <template>
+  
   <div class="container-fluid mx-auto">
     <Nav />
     <h1 class="h2">PAGINACION DE MANIFIESTOS</h1>
@@ -6,14 +7,15 @@
     pagina: {{ manifestStore.page }}
     <button class="btn btn-dark" @click="next(page, limit)">Siguiente</button>
     <br /><br />
-
+    
     <div class="row w-100">
       <div
-        class="col-md-4 mb-4"
-        v-for="(manifest, index) in manifestStore.allManifest"
-        :key="manifest._id + index"
+      class="col-md-4 mb-4"
+      v-for="(manifest, index) in manifestStore.allManifest"
+      :key="manifest._id + index"
       >
-        <div class="card">
+      <div class="card">
+          <QRCode :value="manifest.imageURL"/>  
           <div class="card-content">
             <h5 class="card-title">{{ manifest.originalFileName }}</h5>
             <img :src="manifest.imageURL" class="card-img-top" alt="..." />
@@ -21,6 +23,7 @@
             <p class="card-text">
               Url PDF: <a :href="manifest.imageURL" target="_blank">{{ manifest.imageURL }}</a>
             </p>
+
             <button class="btn btn-danger" @click="deleteFIle(manifest._id)">
               Eliminar Manifiesto
             </button>
@@ -35,12 +38,14 @@
 import { ref, reactive, onMounted } from 'vue'
 import { useManifestStore } from '../../stores/getAllFiles.store'
 import Nav from '../nav/Nav.vue'
-
+import QRCode from 'vue-qrcode';
 const manifestStore = useManifestStore()
 let page = ref(1)
 let limit = ref(10)
 let manifest = reactive<any>([])
 let _id = ref('')
+
+
 onMounted(async () => {
   await getData(page.value, limit.value)
 })
@@ -60,7 +65,6 @@ const previous = async (pages: number, limits: number) => {
 const next = async (pages: number, limits: number) => {
   pages = page.value++
   manifestStore.page = pages
-  console.log('pagina posterior', manifestStore.page)
   await getData(pages, limits)
 }
 
@@ -74,6 +78,7 @@ const deleteFIle = async (id: string) => {
     alert(responseDelete)
   }
 }
+
 </script>
 <style scoped>
 .card-content {

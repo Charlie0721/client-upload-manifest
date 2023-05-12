@@ -1,9 +1,11 @@
 <template>
+ 
   <div class="container" style="padding-top: 50px">
     <div class="row">
       <div class="col-md-4 mb-4" v-for="(file, index) in files" :key="file._id + index">
         <div class="card">
-          <div class="card-content">
+          <QrCode :value="file.imageURL"/>  
+           <div class="card-content">
             <h5 class="card-title">{{ file.originalFileName }}</h5>
             <img :src="file.imageURL" class="card-img-top" alt="..." />
             <p class="card-text">Id del PDF: {{ file.public_id }}</p>
@@ -23,8 +25,11 @@ import { defineComponent, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { useFileStore } from '../../stores/getFilesByProductsId.store'
-
+import QrCode from 'vue-qrcode';
 export default defineComponent({
+  components: {
+    QrCode
+  },
   setup() {
     const fileStore = useFileStore()
     const route = useRoute()
