@@ -68,7 +68,9 @@ const deleteFIle = async (id: string) => {
   _id.value = id
 
   const responseDelete = await manifestStore.deleteManifest(_id.value)
+
   if (responseDelete === 'Manifiesto eliminado satisfactoriamente') {
+    location.reload()
     alert(responseDelete)
   }
 }
