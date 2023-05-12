@@ -1,5 +1,4 @@
 <template>
-  
   <div class="container-fluid mx-auto">
     <Nav />
     <h1 class="h2">PAGINACION DE MANIFIESTOS</h1>
@@ -7,15 +6,10 @@
     pagina: {{ manifestStore.page }}
     <button class="btn btn-dark" @click="next(page, limit)">Siguiente</button>
     <br /><br />
-    
+
     <div class="row w-100">
-      <div
-      class="col-md-4 mb-4"
-      v-for="(manifest, index) in manifestStore.allManifest"
-      :key="manifest._id + index"
-      >
-      <div class="card">
-          <QRCode :value="manifest.imageURL"/>  
+      <div class="col-md-4 mb-4" v-for="(manifest, index) in manifestStore.allManifest" :key="manifest._id + index">
+        <div class="card">
           <div class="card-content">
             <h5 class="card-title">{{ manifest.originalFileName }}</h5>
             <img :src="manifest.imageURL" class="card-img-top" alt="..." />
@@ -38,7 +32,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { useManifestStore } from '../../stores/getAllFiles.store'
 import Nav from '../nav/Nav.vue'
-import QRCode from 'vue-qrcode';
+
 const manifestStore = useManifestStore()
 let page = ref(1)
 let limit = ref(10)
@@ -51,7 +45,7 @@ onMounted(async () => {
 })
 
 const getData = async (page: number, limit: number) => {
-  ;(page = page), (limit = limit)
+  ; (page = page), (limit = limit)
   manifest = await manifestStore.getAllManifest(page, limit)
 }
 
@@ -84,6 +78,7 @@ const deleteFIle = async (id: string) => {
 .card-content {
   padding: 1rem;
 }
+
 .custom-col {
   flex: 0 0 calc(33.33% - 1rem);
   max-width: calc(33.33% - 1rem);
