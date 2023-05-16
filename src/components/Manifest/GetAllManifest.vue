@@ -1,10 +1,15 @@
 <template>
   <div class="container-fluid mx-auto">
     <Nav />
-    <h1 class="h2">PAGINACION DE MANIFIESTOS</h1>
-    <button class="btn btn-dark" @click="previous(page, limit)" v-if="page > 0">Anterior</button>
-    pagina: {{ manifestStore.page }}
-    <button class="btn btn-dark" @click="next(page, limit)">Siguiente</button>
+    <div class="card">
+      <div class="card-body">
+
+        <h1 class="h2">MANIFIESTOS DE MANIFIESTOS</h1>
+        <button class="btn btn-dark" @click="previous(page, limit)" v-if="page > 0">Anterior</button>
+        pagina: {{ manifestStore.page }}
+        <button class="btn btn-dark" @click="next(page, limit)">Siguiente</button>
+      </div>
+    </div>
     <br /><br />
 
     <div class="row w-100">

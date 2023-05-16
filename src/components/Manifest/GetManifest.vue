@@ -11,7 +11,6 @@
             <p class="card-text">
               Url PDF: <a :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
