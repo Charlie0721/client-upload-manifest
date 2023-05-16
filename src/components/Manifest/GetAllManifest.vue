@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-body">
 
-        <h1 class="h2">MANIFIESTOS DE MANIFIESTOS</h1>
+        <h1 class="h2">MANIFIESTOS</h1>
         <button class="btn btn-dark" @click="previous(page, limit)" v-if="page > 0">Anterior</button>
         pagina: {{ manifestStore.page }}
         <button class="btn btn-dark" @click="next(page, limit)">Siguiente</button>
@@ -17,7 +17,6 @@
         <div class="card">
           <div class="card-content">
             <h5 class="card-title">{{ manifest.originalFileName }}</h5>
-            <img :src="manifest.imageURL" class="card-img-top" alt="..." />
             <p class="card-text">Id del PDF: {{ manifest.public_id }}</p>
             <p class="card-text">
               Url PDF: <a :href="manifest.imageURL" target="_blank">{{ manifest.imageURL }}</a>
