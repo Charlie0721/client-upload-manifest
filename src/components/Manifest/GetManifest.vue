@@ -21,7 +21,6 @@
 <script lang="ts">
 import { defineComponent, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-
 import { useFileStore } from '../../stores/getFilesByProductsId.store'
 
 export default defineComponent({
