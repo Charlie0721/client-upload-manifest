@@ -25,7 +25,6 @@ export const useManifestStore = defineStore('manifestStore', {
             } catch (error) {
                 console.log(error)
             }
-
         },
         async deleteManifest(id: string) {
             try {
@@ -39,5 +38,4 @@ export const useManifestStore = defineStore('manifestStore', {
             }
         }
     }
-
 })
