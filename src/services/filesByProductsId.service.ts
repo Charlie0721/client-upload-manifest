@@ -1,11 +1,10 @@
 import axios from "./axios"
 
-export class FilesByProductsIdService {
+export class FilesByManifestIdService {
 
-    static filesByProductsIdService = async (productId: string) => {
+    static filesByManifestIdService = async (manifestPosId: string) => {
 
-        return await axios.get(`/get-files-by-productsid/${productId}`)
+        return await axios.get(`/get-files-by-manifestposid/${manifestPosId}`)
     }
-
 
 }

@@ -27,7 +27,4 @@ export const singupStore = defineStore('singupStore', {
         }
 
     }
-
-
-
 });

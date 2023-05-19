@@ -14,12 +14,13 @@
 
     <div class="row w-100">
       <div class="col-md-4 mb-4" v-for="(manifest, index) in manifestStore.allManifest" :key="manifest._id + index">
-        <div class="card">
+        <div class="card card text-white bg-dark">
+          <div class="card-header text-center">
+            <h5 class="card-title"> Manifiesto: {{ manifest.manifestPosId[0] }}</h5>
+          </div>
           <div class="card-content">
-            <h5 class="card-title">{{ manifest.originalFileName }}</h5>
-            <p class="card-text">Id del PDF: {{ manifest.public_id }}</p>
-            <p class="card-text">
-              Url PDF: <a :href="manifest.imageURL" target="_blank">{{ manifest.imageURL }}</a>
+            <p class="card-text ">
+              Url PDF: <a class="text-white" :href="manifest.imageURL" target="_blank">{{ manifest.imageURL }}</a>
             </p>
 
             <button class="btn btn-danger" @click="deleteFIle(manifest._id)">

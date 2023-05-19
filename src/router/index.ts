@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
     component: SignUp
   },
   {
-    path: '/all-manifest/:productId',
+    path: '/all-manifest/:manifestPosId',
     name: 'manifest',
     component: Manifest
   },

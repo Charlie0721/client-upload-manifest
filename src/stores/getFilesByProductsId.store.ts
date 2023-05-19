@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { FilesByProductsIdService } from '../services/filesByProductsId.service';
+import { FilesByManifestIdService } from '../services/filesByProductsId.service';
 
 export const useFileStore = defineStore({
     id: 'fileStore',
@@ -8,7 +8,7 @@ export const useFileStore = defineStore({
     }),
     actions: {
       async fetchFiles(productId: string) {
-        const response = await FilesByProductsIdService.filesByProductsIdService(productId);
+        const response = await FilesByManifestIdService.filesByManifestIdService(productId);
         this.files = response.data;
       },
     },

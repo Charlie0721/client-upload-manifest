@@ -2,14 +2,14 @@
   <div class="container" style="padding-top: 50px">
     <div class="row">
       <div class="col-md-4 mb-4" v-for="(file, index) in files" :key="file._id + index">
-        <div class="card">
-
+        <div class="card text-white bg-dark">
+          <div class="card-header">
+            <h5 class="card-title text-center">     Manifiesto: {{ file.manifestPosId[0] }}</h5>
+  </div>
          <div class="card-content">
-            <h5 class="card-title">{{ file.originalFileName }}</h5>
-            <img :src="file.imageURL" class="card-img-top" alt="..." />
-            <p class="card-text">Id del PDF: {{ file.public_id }}</p>
+      
             <p class="card-text">
-              Url PDF: <a :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
+              Url PDF: <a class="text-white" :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
             </p>
           </div>
         </div>
@@ -27,13 +27,13 @@ export default defineComponent({
     setup() {
     const fileStore = useFileStore()
     const route = useRoute()
-    const productIds = (route.params.productId as string).split(',')
+    const manifestPosId = (route.params.manifestPosId as string).split(',')
 
     //@ts-ignore
 
     const files = computed(() => fileStore.files)
     onMounted(async () => {
-      await fileStore.fetchFiles(productIds.join(','))
+      await fileStore.fetchFiles(manifestPosId.join(','))
     })
 
     return {
