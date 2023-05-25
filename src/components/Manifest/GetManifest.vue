@@ -2,7 +2,7 @@
   <div class="container" style="padding-top: 50px">
     <div class="card">
       <div class="card-body">
-        <h1 class="h2 text-center">MANIFIESTOS: {{ manifestPosId.join(', ') }}</h1>
+        <h1 class="h2 text-center">LISTADO DE MANIFIESTOS</h1>
       </div>
     </div>
     <br /><br />

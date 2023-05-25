@@ -21,7 +21,7 @@
           </div>
           <div class="card-content">
             <p class="card-text ">
-             <a class="text-white" :href="manifest.imageURL" target="_blank">{{ manifest.imageURL }}</a>
+            <a class="text-white" :href="manifest.imageURL" target="_blank">{{ manifest.imageURL }}</a>
             </p>
 
             <button class="btn btn-danger" @click="deleteFIle(manifest._id)">
