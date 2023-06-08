@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-body">
 
-        <h1 class="h2">MANIFIESTOS</h1>
+        <h1 class="h2">DECLARACION DE IMPORTACION</h1>
         <button class="btn btn-dark" @click="previous(page, limit)" v-if="page > 0">Anterior</button>
         pagina: {{ manifestStore.page }}
         <button class="btn btn-dark" @click="next(page, limit)">Siguiente</button>
@@ -16,7 +16,7 @@
       <div class="col-md-4 mb-4" v-for="(manifest, index) in manifestStore.allManifest" :key="manifest._id + index">
         <div class="card card text-white bg-dark">
           <div class="card-header text-center">
-            <h5 class="card-title"> Manifiesto: </h5>
+            <h5 class="card-title"> DECLARACION DE IMPORTACION: </h5>
             <p class="card-text ">{{ manifest.manifestName }}</p>
           </div>
           <div class="card-content">

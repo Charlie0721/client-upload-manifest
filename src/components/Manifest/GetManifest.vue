@@ -2,7 +2,7 @@
   <div class="container" style="padding-top: 50px">
     <div class="card">
       <div class="card-body">
-        <h1 class="h2 text-center">LISTADO DE MANIFIESTOS</h1>
+        <h1 class="h2 text-center">DECLARACION DE IMPORTACION</h1>
       </div>
     </div>
     <br /><br />
@@ -10,7 +10,7 @@
       <div class="col-md-4 mb-4" v-for="(file, index) in files" :key="file._id + index">
         <div class="card text-white bg-dark">
           <div class="card-header">
-            <h5 class="card-title text-center"> Manifiesto: </h5>
+            <h5 class="card-title text-center">DECLARACION DE IMPORTACION: </h5>
             <p class="card-text ">{{ file.manifestName }}</p>
           </div>
           <div class="card-content">
