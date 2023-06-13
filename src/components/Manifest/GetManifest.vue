@@ -18,12 +18,6 @@
             <p class="card-text">
               <a class="text-white" :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
             </p>
-            <p class="card-text">
-              <a class="text-white" :href="file.manifestURL" target="_blank">{{ file.public_id }}</a>
-            </p>
-            <button class="btn btn-danger" @click="goToFile(file.public_id)">
-              Ir al manifiesto
-            </button>
           </div>
         </div>
       </div>
@@ -37,19 +31,14 @@ import { useRoute } from 'vue-router'
 import { useFileStore } from '../../stores/getFilesByProductsId.store'
 
 export default defineComponent({
-
   setup() {
     const fileStore = useFileStore()
     const route = useRoute()
     const manifestPosId = ref<string[]>([])
+
     manifestPosId.value = (route.params.manifestPosId as string).split(',')
 
     const files = computed(() => fileStore.files)
-    const data = computed(() => fileStore.fileData)
-    const goToFile = async (public_id: string) => {
-
-      window.open(public_id, '_blank')
-    }
 
     onMounted(async () => {
       await fileStore.fetchFiles(manifestPosId.value.join(','))
@@ -57,15 +46,9 @@ export default defineComponent({
 
     return {
       manifestPosId,
-      files,
-      goToFile,
-      data
+      files
     }
-
   }
-
-
-
 })
 </script>
 <style scoped>
