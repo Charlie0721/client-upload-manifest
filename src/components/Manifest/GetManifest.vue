@@ -19,9 +19,9 @@
               <a class="text-white" :href="file.imageURL" target="_blank">{{ file.imageURL }}</a>
             </p>
             <p class="card-text">
-              <a class="text-white" :href="file.manifestURL" target="_blank">{{ file.manifestURL }}</a>
+              <a class="text-white" :href="file.manifestURL" target="_blank">{{ file.public_id }}</a>
             </p>
-            <button class="btn btn-danger" @click="goToFile(file.imageURL)">
+            <button class="btn btn-danger" @click="goToFile(file.public_id)">
               Ir al manifiesto
             </button>
           </div>
@@ -46,9 +46,9 @@ export default defineComponent({
 
     const files = computed(() => fileStore.files)
     const data = computed(() => fileStore.fileData)
-    const goToFile = async (imageURL: string) => {
+    const goToFile = async (public_id: string) => {
 
-      window.open(imageURL, '_blank')
+      window.open(public_id, '_blank')
     }
 
     onMounted(async () => {
